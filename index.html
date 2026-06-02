@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Vit bhopal paper hub</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+        <div class="background">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Email" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            
+            <button type="submit">Login</button>
+            <div>
+          
+            <p style="text-align: center;">
+                <a href="#" id="forgotPassLink" style="color: #ececec; font-size: 16px; text-decoration: none; border: 1px solid #f0f0f0; padding: 5px 10px; background-color: #b70716;">Forgot Password?</a>
+            </p>
+           
+        </div>
+        <div class="register-link">
+            <p>Don't have an account? <a href="register.html">Register here</a></p> 
+        </div>
+        </form>
+        </div>
+
+        <footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-box">
+            <h3>Vit Bhopal Paper Hub</h3>
+            <p>A central repository for VIT Bhopal students to find previous year papers and study materials easily.</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-box">
+            <h3>Connect With Me</h3>
+            <p>Developed by <strong>Ankit Yadav</strong></p>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/ankit-yadav-968874397?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">LinkedIn</a>
+                <a href="https://github.com/ankityadav075" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>Copyright &copy; 2026 Vit Bhopal Paper Hub. All Rights Reserved.</p>
+    </div>
+</footer>
+        
+
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+<script>
+// Step 1 wala config yahan paste karein
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBJaFHyI0g271m_5327E0J1ajCxroM8ey8",
+    authDomain: "vit-bhopal-paper-hubs.firebaseapp.com",
+    projectId: "vit-bhopal-paper-hubs",
+    storageBucket: "vit-bhopal-paper-hubs.firebasestorage.app",
+    messagingSenderId: "907343684705",
+    appId: "1:907343684705:web:17e2c5b836a6ccff39b620",
+    measurementId: "G-VHTLKE5ZVR"
+  };
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+</script>
+
+<script src="JavaScript.js"></script>
+</body>
+</html>

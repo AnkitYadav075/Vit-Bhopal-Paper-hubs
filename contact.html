@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Vit Bhopal Paper Hub</title>
+    <link rel="stylesheet" href="stylecontact.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 id="logo">Vit bhopal paper hub</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact-container">
+        <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <p>Have a paper to share? Or found a broken link? Let us know!</p>
+            <div class="info-item">
+                <span>📍</span>
+                <p>VIT Bhopal University, Sehore</p>
+            </div>
+            <div class="info-item">
+                <span>📧</span>
+                <p>ehankit777@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="contact-form-box">
+            <form id="contactForm">
+                <input type="text" id="contactName" placeholder="Your Name" required>
+                <input type="email" id="contactEmail" placeholder="Your Email" required>
+                <select id="msgType">
+                    <option value="Suggestion">Suggestion</option>
+                    <option value="Broken Link">Broken Link / Error</option>
+                    <option value="Share Paper">Share New Paper Link</option>
+                </select>
+                <textarea id="contactMsg" rows="5" placeholder="Write your message here..." required></textarea>
+                <button type="submit" id="sendBtn">Send Message</button>
+            </form>
+            <p id="formStatus"></p>
+        </div>
+    </section>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Aapka Firebase Config
+        const firebaseConfig = {
+            apiKey: "AIzaSyBJaFHyI0g271m_5327E0J1ajCxroM8ey8",
+            authDomain: "vit-bhopal-paper-hubs.firebaseapp.com",
+            projectId: "vit-bhopal-paper-hubs",
+            storageBucket: "vit-bhopal-paper-hubs.firebasestorage.app",
+            messagingSenderId: "907343684705",
+            appId: "1:907343684705:web:17e2c5b836a6ccff39b620"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Form Logic
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('sendBtn');
+            const status = document.getElementById('formStatus');
+
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+
+            db.collection("feedbacks").add({
+                name: document.getElementById('contactName').value,
+                email: document.getElementById('contactEmail').value,
+                type: document.getElementById('msgType').value,
+                message: document.getElementById('contactMsg').value,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(() => {
+                status.innerText = "Message sent successfully! Thank you.";
+                status.style.color = "#27ae60";
+                document.getElementById('contactForm').reset();
+                btn.innerText = "Send Message";
+                btn.disabled = false;
+            }).catch(err => {
+                status.innerText = "Error: " + err.message;
+                status.style.color = "red";
+                btn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>

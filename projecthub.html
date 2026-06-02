@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Hub - VIT Bhopal</title>
+    <link rel="stylesheet" href="styleproject.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 id="logo">Vit Bhopal Project Hub</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="paperhub.html">Papers</a></li>
+                <li><a href="assignment.html">Assig.</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="Searchbar">    
+        <input type="text" id="projectSearch" placeholder="Search projects by name...">
+        <i class="fa fa-search"></i>    
+    </div>
+    
+    <main class="grid-container">
+        <div id="dynamicProjects" style="display: contents;"></div>
+    </main>
+    
+    <div class="fab-upload" id="uploadBtn" onclick="openUploadModal()" style="display: none;">
+        <i class="fas fa-plus"></i>
+    </div>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('projectModal')">&times;</span>
+            <h2 style="color: #27ae60;">Upload New Project</h2>
+            <input type="text" id="pTitle" placeholder="Project Title">
+            <input type="number" id="pPercent" placeholder="Project Completion %">
+            <input type="text" id="pDev" placeholder="Developer Name">
+            <input type="url" id="pLink" placeholder="Drive/GitHub Link">
+            <input type="text" id="pAccessCode" placeholder="Set Access Code">
+            <button class="btn-submit" onclick="uploadProject()">Upload Project</button>
+        </div>
+    </div>
+
+    <div id="choiceModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('choiceModal')">&times;</span>
+            <h2>Project Locked</h2>
+            <p>Do you have the Access Code?</p>
+            <button class="btn-submit" onclick="showAccessInput()" style="background:#34495e;">I have Access Code</button>
+            <button class="btn-submit" onclick="showFollowForm()" style="background:#30e14a;">Get Code from Social Media</button>
+        </div>
+    </div>
+
+    <div id="followModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('followModal')">&times;</span>
+            <h2 style="color: #E1306C;"><i class="fab fa-instagram"></i> Contact me through </h2>
+            <div class="social-step">
+                <a href="https://www.instagram.com/_ankit_ydv__7" target="_blank" class="btn-insta">
+                    <i class="fab fa-instagram"></i> Open Instagram
+                </a>
+                <a href="https://youtube.com/@designer_0777" target="_blank" class="btn-yt">
+                    <i class="fab fa-youtube"></i> Subscribe YouTube
+                </a>
+
+                <a href="https://wa.me/qr/ANMJYPWXVBMVD1" target="_blank" class="btn-wts">
+                    <i class="fab fa-whatsapp"></i> Best Way to Contact
+                </a>
+
+
+            </div>
+            <button class="btn-submit" onclick="closeModal('followModal')" style="background: #34495e; margin-top:20px;">Okay, Got It!</button>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Paper Hub</h3>
+            <p>Providing previous year papers for VIT Bhopal students to help them excel in exams.</p>
+        </div>
+
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Connect</h4>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/ankit-yadav-968874397?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">LinkedIn</a> |
+                 <a href="https://github.com/ankityadav075" target="_blank">GitHub</a>
+            </div>
+            <p>Email: ehankit777@gmail.com</p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 Vit Bhopal Paper Hub. All rights reserved.</p>
+    </div>
+</footer>  
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="projectscript.js"></script>
+</body>
+</html>

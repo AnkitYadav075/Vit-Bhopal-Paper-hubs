@@ -1,0 +1,322 @@
+/* ==========================================================================
+   Global Styles
+   ========================================================================== */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    overflow-x: hidden; /* Mobile par side scrolling rokne ke liye */
+}
+
+* { 
+    box-sizing: border-box; 
+}
+
+header {
+    background-color: green;
+    padding: 15px 0;
+    z-index: 1000;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: 1.8rem;
+}
+
+/* Flexible Navbar Setup */
+nav ul {
+    color: white;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Mobile par links automatically niche shift ho jayenge */
+    padding: 0;
+    margin: 0;
+    gap: 15px; /* Fixed margins se behtar gap properties hain */
+}
+
+nav ul li {
+    margin: 5px 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   Flexible Search Bar (Fixed Overlap Bug)
+   ========================================================================== */
+.Searchbar {
+    margin: 30px auto 10px auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    max-width: 500px; /* Desktop limit */
+}
+
+.Searchbar input {
+    width: 100%; /* Default flexible width */
+    font-size: 16px;
+    padding: 12px 45px 12px 20px; /* Right side padding badha di taaki icon text par na chadhe */
+    border-radius: 25px;
+    border: none;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.Searchbar input:focus { 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    outline: none; 
+}
+
+/* Absolute Positioning for Search Icon */
+.Searchbar i {
+    position: absolute;
+    right: 35px;
+    color: #555;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   Grid & Paper Cards Layout
+   ========================================================================== */
+.grid-container {
+    display: grid;
+    /* Auto-fit columns automatically grids handle karega */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px; 
+    padding: 30px 20px;
+}
+
+.PaperBox {
+    background-image: url(whitepaperbg.png);
+    background-size: cover;
+    padding: 25px 20px;
+    text-align: center;
+    border-radius: 12px;
+    border: 2px solid #035e16;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.PaperBox:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.paper-box-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.Classid { 
+    font-size: 18px; 
+    font-weight: bold; 
+    color: #035e16; 
+}
+
+.Paper {
+    margin-top: 15px;
+    padding: 10px 25px;
+    border-radius: 8px;
+    background-color: #1632cf;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%; /* Mobile touch target ke liye full-width default optimized */
+    transition: background 0.2s;
+}
+
+.Paper:hover {
+    background-color: #11259c;
+}
+
+/* Slot Badge Highlight */
+.slot-badge {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Floating Action Button
+   ========================================================================== */
+.fab-upload {
+    position: fixed; 
+    bottom: 25px; 
+    right: 25px;
+    background-color: #3498db; 
+    color: white;
+    width: 55px; 
+    height: 55px; 
+    border-radius: 50%;
+    display: none; /* JavaScript handle karega block/none ko */
+    justify-content: center; 
+    align-items: center;
+    font-size: 22px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    cursor: pointer; 
+    z-index: 1000;
+    transition: transform 0.2s;
+}
+
+.fab-upload:active {
+    transform: scale(0.9); /* Click effect for mobile screens */
+}
+
+/* ==========================================================================
+   Flexible Modal Popups
+   ========================================================================== */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000;
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+    overflow-y: auto; /* Screen size choti ho toh modal scroll ho jaye */
+}
+
+.modal-content {
+    background-color: #fff; 
+    margin: 15% auto; 
+    padding: 25px;
+    border-radius: 16px; 
+    width: 90%; 
+    max-width: 400px;
+    text-align: center; 
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content input {
+    width: 100%; /* Uniform standard widths */
+    padding: 12px; 
+    margin: 8px 0;
+    border: 1.5px solid #eee; 
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.btn-submit {
+    background: #27ae60; 
+    color: white; 
+    border: none;
+    padding: 12px; 
+    border-radius: 8px; 
+    cursor: pointer;
+    width: 100%; 
+    font-weight: bold; 
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.close-btn { 
+    position: absolute; 
+    right: 20px;
+    top: 15px; 
+    font-size: 28px; 
+    cursor: pointer; 
+    color: #aaa;
+}
+
+.close-btn:hover { color: #333; }
+
+/* ==========================================================================
+   Footer Component
+   ========================================================================== */
+footer {
+    background-color: #2c3e50; 
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    margin-top: 15px;
+    padding-top: 10px;
+    font-size: 13px;
+    color: #bdc3c7;
+}
+
+/* ==========================================================================
+   Mobile & Tablet Responsiveness Media Queries
+   ========================================================================== */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        gap: 10px; /* Distances adjusted for tabs/phones */
+    }
+
+    nav ul li {
+        margin: 5px;
+    }
+
+    .grid-container { 
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Chote devices par adaptivity rules */
+        padding: 15px; 
+        gap: 15px;
+    }
+
+    .Searchbar {
+        margin-top: 20px;
+    }
+
+    .Searchbar input { 
+        font-size: 15px;
+        padding: 10px 40px 10px 15px;
+    }
+    
+    .Searchbar i {
+        right: 35px;
+    }
+
+    ::placeholder {
+        font-size: 12px;
+    }
+
+    .modal-content {
+        margin: 30% auto; 
+        padding: 20px;
+    }
+}

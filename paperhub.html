@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Paper Hub - VIT Bhopal</title>
+    <link rel="stylesheet" href="Stylepapers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Vit bhopal paper hub</h1>
+            <ul>
+                <li><a href="APPpage.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <div class="Searchbar">    
+        <input type="text" id="mainSearch" placeholder="Search by Code, Name or Slot (e.g. A1)">
+        <i class="fa fa-search"></i>    
+    </div>
+    
+    <main class="grid-container" id="papersGrid">
+        <div id="dynamicPapers" style="display: contents;"></div>
+    </main>
+    
+    <div class="fab-upload" id="uploadBtn" onclick="openModal()">
+        <i class="fa fa-plus"></i>
+    </div>
+
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Share Paper</h2>
+            <input type="text" id="paperCode" placeholder="Course Code">
+            <input type="text" id="paperTitle" placeholder="Course Name">
+            <input type="text" id="paperSlot" placeholder="Slot (e.g. A1, B2)">
+            <input type="url" id="driveLink" placeholder="Google Drive Link">
+            <button class="btn-submit" onclick="savePaperLink()">Submit Paper</button>
+            <p id="statusMsg" style="margin-top:15px; font-weight: bold;"></p>
+        </div>
+    </div>
+
+
+    <footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Paper Hub</h3>
+            <p>Providing previous year papers for VIT Bhopal students to help them excel in exams.</p>
+        </div>
+
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Connect</h4>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/ankit-yadav-968874397?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" target="_blank">LinkedIn</a> |
+                 <a href="https://github.com/ankityadav075" target="_blank">GitHub</a>
+            </div>
+            <p>Email: ehankit777@gmail.com</p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 Vit Bhopal Paper Hub. All rights reserved.</p>
+    </div>
+</footer>  
+
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+
+<script src="script.js"></script>
+</body>
+</html>
